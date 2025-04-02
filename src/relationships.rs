@@ -1,11 +1,13 @@
+use std::collections::HashSet;
+
 use serde::{Deserialize, Serialize};
 
-use crate::relationship::Relationship;
+use crate::entries::RelationshipEntry;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct Relationships {
     pub kind: Kind,
-    pub relationships: Vec<Relationship>,
+    pub relationships: HashSet<RelationshipEntry>,
 }
 
 impl Relationships {

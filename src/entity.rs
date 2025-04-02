@@ -1,6 +1,8 @@
+use std::collections::HashSet;
+
 use serde::{Deserialize, Serialize};
 
-use crate::attribute::Attribute;
+use crate::entries::AttributeEntry;
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct Entity {
@@ -9,7 +11,7 @@ pub struct Entity {
     #[serde(default)]
     pub kind: Kind,
     #[serde(default)]
-    pub attributes: Vec<Attribute>,
+    pub attributes: HashSet<AttributeEntry>,
     #[serde(default)]
     pub rank: Option<u8>,
 }

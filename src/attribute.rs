@@ -1,4 +1,8 @@
+use std::collections::HashSet;
+
 use serde::{Deserialize, Serialize};
+
+use crate::entries::AttributeEntry;
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct Attribute {
@@ -26,7 +30,7 @@ pub enum Kind {
 #[derive(Default, Debug, Deserialize, Serialize)]
 #[serde(untagged)]
 pub enum Composition {
-    Composite(Vec<Attribute>),
+    Composite(HashSet<AttributeEntry>),
     #[default]
     Simple,
 }

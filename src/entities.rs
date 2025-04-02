@@ -1,9 +1,13 @@
+use std::collections::HashSet;
+
 use serde::{Deserialize, Serialize};
+
+use crate::entries::EntityEntry;
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct Entities {
     pub kind: Kind,
-    pub entities: Vec<Entities>,
+    pub entities: HashSet<EntityEntry>,
 }
 
 impl Entities {
@@ -21,4 +25,3 @@ pub enum Kind {
     Chen,
     Table,
 }
-
