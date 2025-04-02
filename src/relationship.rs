@@ -3,6 +3,7 @@ use serde::{Deserialize, Serialize};
 use crate::attribute::Attribute;
 
 #[derive(Debug, Deserialize, Serialize)]
+#[serde(rename_all = "lowercase")]
 pub struct Relationship {
     pub name: String,
     #[serde(default)]
@@ -14,8 +15,8 @@ pub struct Relationship {
     pub entities: (String, String),
 }
 
-#[derive(Debug, Default, Serialize, Deserialize, Clone, Copy)]
-#[serde(untagged)]
+#[derive(Debug, Default, Serialize, Deserialize, Clone, Copy, PartialEq, Eq)]
+#[serde(rename_all = "lowercase")]
 pub enum Multiplicity {
     #[default]
     One,
@@ -26,8 +27,8 @@ pub enum Multiplicity {
     Many,
 }
 
-#[derive(Debug, Default, Serialize, Deserialize)]
-#[serde(untagged)]
+#[derive(Debug, Default, Serialize, Deserialize, PartialEq, Eq, Hash)]
+#[serde(rename_all = "lowercase")]
 pub enum Kind {
     #[default]
     Simple,

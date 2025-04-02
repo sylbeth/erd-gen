@@ -5,6 +5,7 @@ use serde::{Deserialize, Serialize};
 use crate::{color::Color, entities::Entities, relationships::Relationships};
 
 #[derive(Debug, Deserialize, Serialize)]
+#[serde(rename_all = "lowercase")]
 pub struct Graph {
     #[serde(default)]
     pub direction: Option<Direction>,
@@ -13,11 +14,11 @@ pub struct Graph {
     #[serde(default)]
     pub layout: Option<Layout>,
     #[serde(default)]
-    pub bgcolor: Option<Color>,
+    pub bg_color: Option<Color>,
     #[serde(default)]
     pub fonts: Option<Domain<Vec<String>>>,
     #[serde(default)]
-    pub fontcolor: Option<Domain<Color>>,
+    pub font_color: Option<Domain<Color>>,
     pub entities: Entities,
     pub relationships: Relationships,
 }
@@ -37,9 +38,9 @@ impl Graph {
             dot.push_str(&size.to_string());
             dot.push_str(";\n");
         }
-        if let Some(bgcolor) = &self.bgcolor {
+        if let Some(bg_color) = &self.bg_color {
             dot.push_str("  bgcolor=");
-            dot.push_str(&bgcolor.as_str());
+            dot.push_str(&bg_color.as_str());
             dot.push_str(";\n");
         }
         if let Some(layout) = &self.layout {
@@ -69,13 +70,13 @@ impl Graph {
             dot.push_str(&edge_fonts.join(","));
             dot.push_str("\"];\n");
         }
-        if let Some(fontcolor) = &self.fontcolor {
+        if let Some(font_color) = &self.font_color {
             let (graph_fc, node_fc, edge_fc): (&Color, &Color, &Color);
-            match fontcolor {
-                Domain::All(fontcolor) => {
-                    graph_fc = fontcolor;
-                    node_fc = fontcolor;
-                    edge_fc = fontcolor;
+            match font_color {
+                Domain::All(font_color) => {
+                    graph_fc = font_color;
+                    node_fc = font_color;
+                    edge_fc = font_color;
                 }
                 Domain::Each { graph, node, edge } => {
                     graph_fc = graph;
@@ -97,7 +98,7 @@ impl Graph {
 }
 
 #[derive(Debug, Deserialize, Serialize)]
-#[serde(untagged)]
+#[serde(rename_all = "lowercase", untagged)]
 pub enum Size {
     Square(f64),
     Rectangle(f64, f64),
@@ -112,8 +113,8 @@ impl Display for Size {
     }
 }
 
-#[derive(Default, Debug, Deserialize, Serialize, Clone, Copy)]
-#[serde(untagged)]
+#[derive(Default, Debug, Deserialize, Serialize, Clone, Copy, PartialEq, Eq)]
+#[serde(rename_all = "lowercase")]
 pub enum Direction {
     #[default]
     TopBottom,
@@ -133,8 +134,8 @@ impl Direction {
     }
 }
 
-#[derive(Debug, Deserialize, Serialize, Clone, Copy)]
-#[serde(untagged)]
+#[derive(Debug, Deserialize, Serialize, Clone, Copy, PartialEq, Eq)]
+#[serde(rename_all = "lowercase")]
 pub enum Layout {
     Dot,
     Neato,
@@ -166,7 +167,7 @@ impl Layout {
 }
 
 #[derive(Debug, Deserialize, Serialize)]
-#[serde(untagged)]
+#[serde(rename_all = "lowercase", untagged)]
 pub enum Domain<T> {
     All(T),
     Each { graph: T, node: T, edge: T },

@@ -5,6 +5,7 @@ use serde::{Deserialize, Serialize};
 use crate::entries::AttributeEntry;
 
 #[derive(Debug, Deserialize, Serialize)]
+#[serde(rename_all = "lowercase")]
 pub struct Attribute {
     pub name: String,
     #[serde(default)]
@@ -15,8 +16,8 @@ pub struct Attribute {
     pub composition: Composition,
 }
 
-#[derive(Default, Debug, Deserialize, Serialize, Clone, Copy)]
-#[serde(untagged)]
+#[derive(Default, Debug, Deserialize, Serialize, Clone, Copy, PartialEq, Eq, Hash)]
+#[serde(rename_all = "lowercase")]
 pub enum Kind {
     #[default]
     Simple,
@@ -28,7 +29,7 @@ pub enum Kind {
 }
 
 #[derive(Default, Debug, Deserialize, Serialize)]
-#[serde(untagged)]
+#[serde(rename_all = "lowercase", untagged)]
 pub enum Composition {
     Composite(HashSet<AttributeEntry>),
     #[default]

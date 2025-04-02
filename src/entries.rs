@@ -5,6 +5,7 @@ use serde::{Deserialize, Serialize};
 use crate::{attribute::Attribute, entity::Entity, relationship::Relationship};
 
 #[derive(Debug, Deserialize, Serialize)]
+#[serde(rename_all = "lowercase")]
 pub struct EntityEntry(pub Entity);
 
 impl PartialEq for EntityEntry {
@@ -22,6 +23,7 @@ impl Hash for EntityEntry {
 }
 
 #[derive(Debug, Deserialize, Serialize)]
+#[serde(rename_all = "lowercase")]
 pub struct RelationshipEntry(pub Relationship);
 
 impl PartialEq for RelationshipEntry {
@@ -39,6 +41,7 @@ impl Hash for RelationshipEntry {
 }
 
 #[derive(Debug, Deserialize, Serialize)]
+#[serde(rename_all = "lowercase")]
 pub struct AttributeEntry(pub Attribute);
 
 impl PartialEq for AttributeEntry {
