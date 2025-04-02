@@ -43,3 +43,6 @@ build.rs
 # Data and backups
 *.dat
 *.bak
+
+# Graph dot file
+*.dot
