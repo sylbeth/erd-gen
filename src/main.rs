@@ -9,5 +9,7 @@ fn main() {
         layout: Some(Layout::Dot),
     };
     println!("{:#?}", graph);
-    println!("{}", graph.to_dot());
+    let mut dot = String::new();
+    graph.to_dot(&mut dot);
+    println!("{}", dot);
 }

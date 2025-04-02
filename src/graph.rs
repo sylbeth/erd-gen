@@ -23,27 +23,25 @@ pub struct Graph {
 }
 
 impl Graph {
-    pub fn to_dot(&self) -> String {
-        let mut dot = String::new();
+    pub fn to_dot(&self, dot: &mut String) {
         if let Some(direction) = &self.direction {
             dot.push_str("digraph {\n");
             dot.push_str("  rankdir=");
             dot.push_str(direction.as_str());
-            dot.push_str("\n");
+            dot.push_str(";\n");
         } else {
             dot.push_str("graph {\n");
         }
         if let Some(size) = &self.size {
             dot.push_str("  size=");
             dot.push_str(&size.to_string());
-            dot.push_str("\n");
+            dot.push_str(";\n");
         }
         if let Some(bgcolor) = &self.bgcolor {
             dot.push_str("  bgcolor=");
             dot.push_str(&bgcolor.as_str());
             dot.push_str(";\n");
         }
-        
         if let Some(layout) = &self.layout {
             dot.push_str("  layout=");
             dot.push_str(&layout.as_str());
@@ -95,7 +93,6 @@ impl Graph {
         }
 
         dot.push_str("}\n");
-        dot
     }
 }
 

@@ -16,8 +16,8 @@
 - [ ] TOML
 - [ ] YAML
 # DOT attributes
-- [ ] rankdir
 - [X] size
+- [X] rankdir
 - [ ] directed
 - [ ] undirected
 - [ ] rank

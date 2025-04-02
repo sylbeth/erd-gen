@@ -11,11 +11,7 @@ pub struct Relationships {
 }
 
 impl Relationships {
-    fn to_dot(&self) -> String {
-        let mut dot = String::new();
-
-        dot
-    }
+    pub fn to_dot(&self, dot: &mut String) {}
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone, Copy)]
