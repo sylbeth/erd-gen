@@ -1,6 +1,6 @@
 use serde::{Deserialize, Serialize};
 
-use crate::{attribute::Attribute, entity::Entity};
+use crate::attribute::Attribute;
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct Relationship {
@@ -11,7 +11,7 @@ pub struct Relationship {
     pub multiplicity: Multiplicity,
     #[serde(default)]
     pub attributes: Vec<Attribute>,
-    pub entities: (Entity, Entity),
+    pub entities: (String, String),
 }
 
 #[derive(Debug, Default, Serialize, Deserialize, Clone, Copy)]
