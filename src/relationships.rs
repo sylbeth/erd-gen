@@ -1,5 +1,6 @@
-use std::collections::{HashMap, HashSet};
+use std::collections::HashMap;
 
+use indexmap::IndexSet;
 use serde::{Deserialize, Serialize};
 
 use crate::{color::Color, entries::RelationshipEntry, prelude::RelationshipKind};
@@ -8,7 +9,7 @@ use crate::{color::Color, entries::RelationshipEntry, prelude::RelationshipKind}
 #[serde(rename_all = "lowercase")]
 pub struct Relationships {
     pub kind: Kind,
-    pub relationships: HashSet<RelationshipEntry>,
+    pub relationships: IndexSet<RelationshipEntry>,
     #[serde(default)]
     pub color: HashMap<RelationshipKind, Color>,
 }

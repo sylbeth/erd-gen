@@ -1,5 +1,4 @@
-use std::collections::HashSet;
-
+use indexmap::IndexSet;
 use serde::{Deserialize, Serialize};
 
 use crate::entries::AttributeEntry;
@@ -31,7 +30,7 @@ pub enum Kind {
 #[derive(Default, Debug, Deserialize, Serialize)]
 #[serde(rename_all = "lowercase", untagged)]
 pub enum Composition {
-    Composite(HashSet<AttributeEntry>),
+    Composite(IndexSet<AttributeEntry>),
     #[default]
     Simple,
 }

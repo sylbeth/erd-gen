@@ -1,5 +1,4 @@
-use std::collections::HashSet;
-
+use indexmap::IndexSet;
 use serde::{Deserialize, Serialize};
 
 use crate::entries::AttributeEntry;
@@ -12,7 +11,7 @@ pub struct Entity {
     #[serde(default)]
     pub kind: Kind,
     #[serde(default)]
-    pub attributes: HashSet<AttributeEntry>,
+    pub attributes: IndexSet<AttributeEntry>,
     #[serde(default)]
     pub rank: Option<u8>,
 }

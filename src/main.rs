@@ -1,5 +1,5 @@
 use std::{
-    collections::{HashMap, HashSet},
+    collections::HashMap,
     error::Error,
     fs::File,
     io::Write,
@@ -7,6 +7,7 @@ use std::{
 
 use erdgen::prelude::*;
 use graphviz_rust::cmd::{CommandArg, Format};
+use indexmap::IndexSet;
 
 fn main() -> Result<(), Box<dyn Error>> {
     let graph = Graph {
@@ -22,13 +23,13 @@ fn main() -> Result<(), Box<dyn Error>> {
         font_color: Some(Domain::All(Color::Black)),
         entities: Entities {
             kind: EntitiesKind::Chen,
-            entities: HashSet::new(),
+            entities: IndexSet::new(),
             color: HashMap::new(),
             attributes_color: HashMap::new(),
         },
         relationships: Relationships {
             kind: RelationshipsKind::ChenArrow,
-            relationships: HashSet::new(),
+            relationships: IndexSet::new(),
             color: HashMap::new(),
         },
     };

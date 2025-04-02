@@ -1,5 +1,6 @@
-use std::collections::{HashMap, HashSet};
+use std::collections::HashMap;
 
+use indexmap::IndexSet;
 use serde::{Deserialize, Serialize};
 
 use crate::{
@@ -12,7 +13,7 @@ use crate::{
 #[serde(rename_all = "lowercase")]
 pub struct Entities {
     pub kind: Kind,
-    pub entities: HashSet<EntityEntry>,
+    pub entities: IndexSet<EntityEntry>,
     #[serde(default)]
     pub color: HashMap<EntityKind, Color>,
     #[serde(default)]
