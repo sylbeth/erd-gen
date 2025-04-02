@@ -2,7 +2,7 @@ use std::fmt::Display;
 
 use serde::{Deserialize, Serialize};
 
-use crate::{entities::Entities, relationships::Relationships};
+use crate::{color::Color, entities::Entities, relationships::Relationships};
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct Graph {
@@ -12,6 +12,8 @@ pub struct Graph {
     pub size: Option<Size>,
     #[serde(default)]
     pub layout: Option<Layout>,
+    #[serde(default)]
+    pub bgcolor: Option<Color>,
     pub entities: Entities,
     pub relationships: Relationships,
 }
