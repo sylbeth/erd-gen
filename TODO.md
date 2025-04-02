@@ -1,11 +1,15 @@
 # E-R Diagram notations
-- [ ] Arrow
-- [ ] Bachman
+## Nodes
 - [ ] Barker
 - [ ] Chen
+- [ ] Table
+## Edges
+- [ ] Arrow
+- [ ] Bachman
+- [ ] Chen
 - [ ] Crow's foot
-- [ ] IDEF1X
 - [ ] UML
+- [ ] Simple
 # Serialization compatibility
 - [ ] HJSON
 - [ ] JSON
