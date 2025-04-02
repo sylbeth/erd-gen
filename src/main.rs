@@ -1,9 +1,12 @@
 use std::{
     collections::{HashMap, HashSet},
     error::Error,
+    fs::File,
+    io::Write,
 };
 
 use erdgen::prelude::*;
+use graphviz_rust::cmd::{CommandArg, Format};
 
 fn main() -> Result<(), Box<dyn Error>> {
     let graph = Graph {
@@ -29,9 +32,18 @@ fn main() -> Result<(), Box<dyn Error>> {
             color: HashMap::new(),
         },
     };
-    println!("{:#?}", graph);
+    let mut serial_file = File::create("graph.hjson")?;
+    let mut dot_file = File::create("graph.dot")?;
     let mut dot = String::new();
     graph.to_dot(&mut dot);
-    println!("{}", dot);
+    serde_hjson::to_writer(&mut serial_file, &graph)?;
+    dot_file.write_all(dot.as_bytes())?;
+    graphviz_rust::exec_dot(
+        dot,
+        vec![
+            CommandArg::Output("graph.png".into()),
+            CommandArg::Format(Format::Png),
+        ],
+    )?;
     Ok(())
 }

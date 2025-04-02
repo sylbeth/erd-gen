@@ -20,7 +20,9 @@ pub struct Entities {
 }
 
 impl Entities {
-    pub fn to_dot(&self, dot: &mut String, is_directed: bool, is_dot: bool) {}
+    pub fn to_dot(&self, dot: &mut String, is_directed: bool, is_dot: bool) {
+        dot.push_str("  comment=\"Entities\"\n");
+    }
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq, Eq)]

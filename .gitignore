@@ -13,16 +13,10 @@ Cargo.lock
 # MSVC Windows builds of rustc generate these, which store debugging information
 *.pdb
 
-# Config files
-*.ron
-
 # Log files
 *.txt
 *.log
 *-log
-
-# CSV files that the program will read
-*.csv
 
 # Not to commit the private location of the icon set for the folder
 desktop.ini
@@ -46,3 +40,13 @@ build.rs
 
 # Graph dot file
 *.dot
+
+# Serialized graph file
+*.hjson
+*.json
+*.ron
+*.toml
+*.yaml
+
+# Correct not commiting Cargo.toml
+!Cargo.toml
