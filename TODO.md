@@ -16,13 +16,14 @@
 - [ ] TOML
 - [ ] YAML
 # DOT attributes
-- [ ] size
 - [ ] rankdir
+- [X] size
 - [ ] directed
 - [ ] undirected
 - [ ] rank
 - [ ] color
 - [ ] font
+- [X] layout
 # Functionality
 - [ ] Clap for CLI options
 - [ ] Autofind which serialization format is used

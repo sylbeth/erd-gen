@@ -6,6 +6,7 @@ fn main() {
         direction: Some(Direction::LeftRight),
         entities: Entities { kind: EntitiesKind::Chen, entities: Vec::new() },
         relationships: Relationships { kind: RelationshipsKind::ChenArrow, relationships: Vec::new() },
+        layout: Some(Layout::Dot),
     };
     println!("{:#?}", graph);
     println!("{}", graph.to_dot());

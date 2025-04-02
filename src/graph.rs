@@ -7,9 +7,11 @@ use crate::{entities::Entities, relationships::Relationships};
 #[derive(Debug, Deserialize, Serialize)]
 pub struct Graph {
     #[serde(default)]
+    pub direction: Option<Direction>,
+    #[serde(default)]
     pub size: Option<Size>,
     #[serde(default)]
-    pub direction: Option<Direction>,
+    pub layout: Option<Layout>,
     pub entities: Entities,
     pub relationships: Relationships,
 }
@@ -31,6 +33,11 @@ impl Graph {
             dot.push_str("\n");
         }
         
+        if let Some(layout) = &self.layout {
+            dot.push_str("  layout=");
+            dot.push_str(&layout.as_str());
+            dot.push_str(";\n");
+        }
         dot.push_str("}\n");
         dot
     }
@@ -69,6 +76,38 @@ impl Direction {
             Direction::LeftRight => "LR",
             Direction::RightLeft => "RL",
             Direction::TopBottom => "TB",
+        }
+    }
+}
+
+#[derive(Debug, Deserialize, Serialize, Clone, Copy)]
+#[serde(untagged)]
+pub enum Layout {
+    Dot,
+    Neato,
+    FDP,
+    SFDP,
+    Circo,
+    TwoPi,
+    Nop,
+    Nop2,
+    Osage,
+    Patchwork,
+}
+
+impl Layout {
+    pub fn as_str(&self) -> &'static str {
+        match self {
+            Self::Circo => "circo",
+            Self::Dot => "dot",
+            Self::FDP => "fdp",
+            Self::Neato => "neato",
+            Self::Nop => "nop",
+            Self::Nop2 => "nop2",
+            Self::Osage => "osage",
+            Self::Patchwork => "patchwork",
+            Self::SFDP => "sfdp",
+            Self::TwoPi => "twopi",
         }
     }
 }
