@@ -24,10 +24,6 @@ desktop.ini
 # VSCode folder
 .vscode/*
 
-# Track images
-*.png
-*.jpg
-
 # Environmental variables
 build.rs
 
@@ -47,6 +43,10 @@ build.rs
 *.ron
 *.toml
 *.yaml
+
+# Graph output
+*.png
+*.svg
 
 # Correct not commiting Cargo.toml
 !Cargo.toml

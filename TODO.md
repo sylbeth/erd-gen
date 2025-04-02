@@ -28,3 +28,4 @@
 - [ ] Clap for CLI options
 - [ ] Autofind which serialization format is used
 - [ ] Choose whether to print, export or both
+- [ ] Choose between SVG or PNG
