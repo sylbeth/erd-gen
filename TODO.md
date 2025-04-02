@@ -21,7 +21,7 @@
 - [ ] directed
 - [ ] undirected
 - [ ] rank
-- [ ] color
+- [X] color
 - [X] font
 - [X] layout
 # Functionality

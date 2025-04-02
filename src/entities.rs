@@ -1,14 +1,22 @@
-use std::collections::HashSet;
+use std::collections::{HashMap, HashSet};
 
 use serde::{Deserialize, Serialize};
 
-use crate::entries::EntityEntry;
+use crate::{
+    color::Color,
+    entries::EntityEntry,
+    prelude::{AttributeKind, EntityKind},
+};
 
 #[derive(Debug, Deserialize, Serialize)]
 #[serde(rename_all = "lowercase")]
 pub struct Entities {
     pub kind: Kind,
     pub entities: HashSet<EntityEntry>,
+    #[serde(default)]
+    pub color: HashMap<EntityKind, Color>,
+    #[serde(default)]
+    pub attributes_color: HashMap<AttributeKind, Color>,
 }
 
 impl Entities {
