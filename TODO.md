@@ -22,7 +22,7 @@
 - [ ] undirected
 - [ ] rank
 - [ ] color
-- [ ] font
+- [X] font
 - [X] layout
 # Functionality
 - [ ] Clap for CLI options
