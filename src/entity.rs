@@ -16,7 +16,9 @@ pub struct Entity {
     pub rank: Option<u8>,
 }
 
-#[derive(Default, Debug, Deserialize, Serialize, Clone, Copy, PartialEq, Eq, Hash)]
+#[derive(
+    Default, Debug, Deserialize, Serialize, Clone, Copy, PartialEq, Eq, Hash, PartialOrd, Ord,
+)]
 #[serde(rename_all = "lowercase")]
 pub enum Kind {
     #[default]

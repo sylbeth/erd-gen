@@ -18,7 +18,7 @@ impl Relationships {
     pub fn to_dot(&self, dot: &mut String, is_directed: bool) {}
 }
 
-#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq, Eq, PartialOrd, Ord)]
 #[serde(rename_all = "lowercase")]
 pub enum Kind {
     Arrow,
