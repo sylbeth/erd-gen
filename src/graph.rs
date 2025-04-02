@@ -34,6 +34,11 @@ impl Graph {
             dot.push_str(&size.to_string());
             dot.push_str("\n");
         }
+        if let Some(bgcolor) = &self.bgcolor {
+            dot.push_str("  bgcolor=");
+            dot.push_str(&bgcolor.as_str());
+            dot.push_str(";\n");
+        }
         
         if let Some(layout) = &self.layout {
             dot.push_str("  layout=");
