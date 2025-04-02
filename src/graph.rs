@@ -1,3 +1,5 @@
+use std::fmt::Display;
+
 use serde::{Deserialize, Serialize};
 
 use crate::{entities::Entities, relationships::Relationships};
@@ -41,11 +43,11 @@ pub enum Size {
     Rectangle(f64, f64),
 }
 
-impl ToString for Size {
-    fn to_string(&self) -> String {
+impl Display for Size {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
-            Self::Square(side) => format!("{side}"),
-            Self::Rectangle(width, height) => format!("\"{width},{height}\""),
+            Self::Square(side) => write!(f, "{side}"),
+            Self::Rectangle(width, height) => write!(f, "\"{width},{height}\""),
         }
     }
 }
