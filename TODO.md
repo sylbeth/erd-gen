@@ -18,9 +18,9 @@
 # DOT attributes
 - [X] size
 - [X] rankdir
-- [ ] directed
-- [ ] undirected
-- [ ] rank
+- [X] directed
+- [X] undirected
+- [X] rank
 - [X] color
 - [X] font
 - [X] layout

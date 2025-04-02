@@ -14,7 +14,7 @@ pub struct Relationships {
 }
 
 impl Relationships {
-    pub fn to_dot(&self, dot: &mut String) {}
+    pub fn to_dot(&self, dot: &mut String, is_directed: bool) {}
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq, Eq)]

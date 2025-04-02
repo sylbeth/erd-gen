@@ -20,7 +20,7 @@ pub struct Entities {
 }
 
 impl Entities {
-    pub fn to_dot(&self, dot: &mut String) {}
+    pub fn to_dot(&self, dot: &mut String, is_directed: bool, is_dot: bool) {}
 }
 
 #[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq, Eq)]
