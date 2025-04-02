@@ -9,7 +9,6 @@
 - [ ] Chen
 - [ ] Crow's foot
 - [ ] UML
-- [ ] Simple
 # Serialization compatibility
 - [ ] HJSON
 - [ ] JSON
@@ -23,6 +22,7 @@
 - [ ] undirected
 - [ ] rank
 - [ ] color
+- [ ] font
 # Functionality
 - [ ] Clap for CLI options
 - [ ] Autofind which serialization format is used
